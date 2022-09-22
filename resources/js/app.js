@@ -8,9 +8,11 @@ let e = new Echo({
 e.channel('chan-demo').listen('PostCreatedEvent', function (e){
     console.log(e)
 })
-e.private(`group.${ authuser.group_id }`).listen('GroupWithEvent', function (e){
-    console.log('GroupWithEvent', e)
-})
+if (typeof authuser === 'object' && authuser !== null){
+    e.private(`group.${ authuser.group_id }`).listen('GroupWithEvent', function (e){
+        console.log('GroupWithEvent', e.id)
+    })
+}
 $('#demo').click(function (e) {
     e.preventDefault()
     $.get('/posts')

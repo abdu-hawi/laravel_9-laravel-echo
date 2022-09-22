@@ -77,7 +77,7 @@
     </div>
 {{--    <script src="{{ asset('js/app.js') }}"></script>--}}
     <script>
-        let authuser = {!! Auth::user() ? : '[]' !!};
+        let authuser = {!! Auth::user() ? : 'false' !!};
     </script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>

@@ -15,7 +15,7 @@ class GroupController extends Controller
 
     public function notify(int $group_id){
         $group = Group::query()->find($group_id);
-        broadcast(new GroupWithEvent($group));
-        return back();
+        broadcast(new GroupWithEvent($group))->toOthers();
+        return redirect()->back();
     }
 }
